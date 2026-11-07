@@ -1,0 +1,24 @@
+package semana13.ejercicios;
+
+public class Edades {
+    public static void main(String[] args) {
+        String[] edades = { "20", "veinte", "35", "", "18" };
+        int suma = 0;
+        int validas = 0;
+
+        for (String e : edades) {
+            try {
+                suma += Integer.parseInt(e);
+                validas++;                       // solo cuenta si la conversion tuvo exito
+            } catch (NumberFormatException ex) {
+                System.out.println("Edad ignorada: \"" + e + "\"");
+            }
+        }
+
+        try {
+            System.out.println("Edad promedio: " + (suma / validas));
+        } catch (ArithmeticException ex) {
+            System.out.println("Sin edades validas");
+        }
+    }
+}
